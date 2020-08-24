@@ -17,6 +17,7 @@ Player player2(height / 2, width - 3);
 
 Ball ball(height / 2, 3, 1);
 
+// N4O: Renamed to avoid name conflict.
 void setup_pong();
 void input_pong();
 void logic_pong();
