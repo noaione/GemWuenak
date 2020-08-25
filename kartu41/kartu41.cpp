@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <time.h>
 #include <windows.h>
-#include <string.h>
 
 #include "kartu41.h"
 #include "../extras/extra.h"
@@ -46,7 +45,7 @@ public:
             this->stackDeck[i] = -1;
         }
 
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 5; i++) {
             this->botDeck[i] = -1;
             this->playerDeck[i] = -1;
         }
@@ -169,24 +168,24 @@ public:
             case 0:
                 {
                     int new_data[5] = {-1};
-                    for (int i = 0; i < 6; i++) {
+                    for (int i = 0; i < 5; i++) {
                         if (this->playerDeck[i] != -1) {
                             new_data[i] = this->playerDeck[i];
                         }
                     }
-                    for (int i = 0; i < 6; i++) {
+                    for (int i = 0; i < 5; i++) {
                         this->playerDeck[i] = new_data[i];
                     }
                     break;   
                 }
             case 1:
                 int new_data[5] = {-1};
-                for (int i = 0; i < 6; i++) {
+                for (int i = 0; i < 5; i++) {
                     if (this->botDeck[i] != -1) {
                         new_data[i] = this->botDeck[i];
                     }
                 }
-                for (int i = 0; i < 6; i++) {
+                for (int i = 0; i < 5; i++) {
                     this->botDeck[i] = new_data[i];
                 }
                 break;
@@ -214,7 +213,7 @@ public:
     void print_user_card() {
         int amount_to_print = 0;
         int to_print[5] = {-1};
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 5; i++) {
             if (this->playerDeck[i] != -1) {
                 to_print[i] = this->playerDeck[i];
                 amount_to_print++;
@@ -278,14 +277,14 @@ public:
                 {
                     int i = 0;
                     if (player == 0) {
-                        while (i < 6) {
+                        while (i < 5) {
                             if (this->playerDeck[i] == -1) {
                                 this->playerDeck[i] = card;
                             }
                             i++;
                         }
                     } else if (player == 1) {
-                        while (i < 6) {
+                        while (i < 5) {
                             if (this->botDeck[i] == -1) {
                                 this->botDeck[i] = card;
                             }
@@ -363,7 +362,7 @@ public:
     }
     void check_card_stack() {
         this->player_score = 0;
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 5; i++) {
             char fletter = this->suites.fullDecks[this->playerDeck[i]][0];
             switch (fletter) {
                 case 'J':
@@ -388,7 +387,7 @@ public:
             return;
         }
         this->bot_score = 0;
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 5; i++) {
             char fletter = this->suites.fullDecks[this->botDeck[i]][0];
             switch (fletter) {
                 case 'J':
