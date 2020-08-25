@@ -3,10 +3,6 @@
 
 typedef struct CardSuites
 {
-    char diamondSuites[5][10] = {"10♦", "J♦", "Q♦", "K♦", "A♦"};
-    char heartSuites[5][10] = {"10♥", "J♥", "Q♥", "K♥", "A♥"};
-    char spadeSuites[5][10] = {"10♠", "J♠", "Q♠", "K♠", "A♠"};
-    char clubSuites[5][10] = {"10♣", "J♣", "Q♣", "K♣", "A♣"};
     char fullDecks[52][10] = {
         "A♣",
         "2♣",
