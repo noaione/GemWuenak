@@ -4,7 +4,7 @@ import time
 diamond=["10♦","J♦","Q♦","K♦","A♦"]
 heart=["10♥","J♥","Q♥","K♥", "A♥"]
 spade=["10♠","J♠","Q♠","K♠", "A♠"]
-club=["10♣","J♣","Q♣","K♣","A♣"]
+club=["10♣","J♣","Q♣","K♣","A♣"]#var2 ini sebenernya gk dibutuhin, cm biar gampang copas
 
 kartuTanganPlayer=[]
 kartuTanganBot=[]
