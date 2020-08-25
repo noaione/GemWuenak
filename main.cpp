@@ -2,17 +2,15 @@
 #include "extras/extra.h"
 
 // Import pong.
-#include "pong/ponggame.cpp"
+#include "pong/ponggame.h"
 // Import flappy bird.
-// Note: Doesn't supppot Linux completely.
-// someone please reimplement getch()
-#include "flappy_bird/flappy_menu.cpp"
+#include "flappy_bird/flappy_menu.h"
 
 // N4O: someone please make the main menu, kthx.
 // extra.h contain some function like
 // hideCursor(), clearScreen(), setCursorPosition(x, y)
 // please use that since it's UNIX/Windows compliant.
 int main() {
-    // flappy_bird();
+    // ping_pong_game();
     return 0;
 }
