@@ -8,4 +8,4 @@ void hideCursor();
 void setCursorPosition(int x, int y);
 void clearScreen();
 
-#endif
+#endif /* EXTRA_STUFF_H */
