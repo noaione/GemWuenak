@@ -44,7 +44,7 @@ void startup_bird() // Data initialization
     hideCursor(); // Hide the cursor
 }
 
-void show() // display
+void show_bird() // display
 {
     int i, j;
     setCursorPosition(0, 0);
