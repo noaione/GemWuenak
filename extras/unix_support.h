@@ -1,7 +1,6 @@
-void SetCursorPos(int XPos, int YPos);
+#ifndef EXTRA_UNIX_SUPPORT_H
+#define EXTRA_UNIX_SUPPORT_H
+
 int kbhit();
 
-typedef struct _COORD {
-    short X;
-    short Y;
-} COORD, *PCOORD;
+#endif

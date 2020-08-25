@@ -7,10 +7,12 @@
 #include "extra.h"
 
 #ifdef _WIN32
+#include <windows.h>
 #include <direct.h>
 #else
 #include <unistd.h>
 #endif
+
 
 int checkAndCreate(const char *folderName) {
     struct stat fst = {0};
@@ -47,8 +49,36 @@ char *getSaveGameFolder() {
     return saveFolder;
 }
 
-
-int main() {
-    char *gamefolder = getSaveGameFolder();
-    printf("%s", gamefolder);
+void hideCursor() {
+#ifdef _WIN32
+    CONSOLE_CURSOR_INFO cursor_info = {1, 0};
+    SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursor_info);
+#else
+    printf("\e[?25l");
+#endif
 }
+
+void setCursorPosition(int x, int y) {
+#ifdef _WIN32
+	COORD cursorPosition; 
+	cursorPosition.X = x; 
+	cursorPosition.Y = y;	
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), cursorPosition);
+#else
+    printf("\033[%d;%dH", x + 1, y + 1);
+#endif
+}
+
+void clearScreen() {
+#ifdef _WIN32
+    system("cls"); // In Windows
+#else
+    printf("\033[2J"); // In Linux/macOS hopefully.
+#endif
+}
+
+
+// int main() {
+//     char *gamefolder = getSaveGameFolder();
+//     printf("%s", gamefolder);
+// }
