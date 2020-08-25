@@ -11,6 +11,7 @@
 #endif
 
 #include "flappygame.h"
+#include "flappy_menu.h"
 #include "../extras/extra.h"
 
 #define keyUp 72 //arrow keys
