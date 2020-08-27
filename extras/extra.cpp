@@ -14,7 +14,7 @@
 #endif
 
 
-int checkAndCreate(const char *folderName) {
+int checkAndCreateFolder(const char *folderName) {
     struct stat fst = {0};
     int res;
     if (stat(folderName, &fst) == -1) {
@@ -45,7 +45,7 @@ char *getSaveGameFolder() {
     char *saveFolder = getenv("HOME");
     strcat(saveFolder, "/.GemWuenak/");
 #endif
-    checkAndCreate(saveFolder);
+    checkAndCreateFolder(saveFolder);
     return saveFolder;
 }
 
