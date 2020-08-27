@@ -14,12 +14,13 @@
 #include "flappy_menu.h"
 #include "../extras/extra.h"
 
-#define keyUp 72 //arrow keys
+#define keyUp 72 // arrow keys
 #define keyDown 80
 #define keyLeft 75
 #define keyRight 77
 #define keyEnter 13
 
+int temp = 0;
 void screenTitle(int *num)
 {
 	int titleScreen[10][94] = {{1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1},
@@ -77,7 +78,7 @@ int flappy_bird()
 	int x = 1;
 	int num;
 	int currPos = 0;
-	char options[3][15] = {"PLAY", "Highscore", "Exit"};
+	char options[3][15] = {"Play", "Highscore", "Exit"};
 	do
 	{
 		screenTitle(&num);
@@ -138,12 +139,45 @@ int flappy_bird()
 				case 0:
 				{
 					clearScreen();
-					startup_bird(); // Data initialization
+					startup_bird();
 					while (1)
 					{
-						show_bird();		  // display
-						updateWithoutInput(); // Updates unrelated to user input
-						updateWithInput();	  // Updates related to user input
+						show_bird();
+						temp = updateWithoutInput();
+						updateWithInput();
+						if (temp == 1)
+						{
+							int exit_code = 0;
+							while (true) {
+								int do_break = 0;
+								char do_retry;
+								clearScreen();
+								printf("You died...\nRetry (y/n)? ");
+								scanf("%c", &do_retry);
+								to_lower(&do_retry);
+								switch (do_retry)
+								{
+									case 'y':
+										temp = 0;
+										do_break = 1;
+										clearScreen();
+										startup_bird();
+										break;
+									case 'n':
+										exit_code = 1;
+										do_break = 1;
+										break;
+									default:
+										break;
+								}
+								if (do_break) {
+									break;
+								}
+							}
+							if (exit_code) {
+								break;
+							}
+						}
 					}
 				}
 				case 1:

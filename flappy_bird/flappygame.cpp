@@ -13,7 +13,6 @@ int bar_xTop, bar_xDown; // Upper and lower coordinates of the baffle opening
 int score;               // score
 int check;
 
-
 void WingUp()
 {
     puts("\\");
@@ -24,6 +23,11 @@ void WingDown()
 {
     puts("<//=Q");
     puts("//");
+}
+
+void replay()
+{
+	
 }
 
 void startup_bird() // Data initialization
@@ -74,7 +78,7 @@ void show_bird() // display
     printf("Score: %d\n", score);
 }
 
-void updateWithoutInput() // Game logic/rule
+int updateWithoutInput() // Game logic/rule
 {
     if (bird_y == bar_y - 1)
     {
@@ -85,7 +89,7 @@ void updateWithoutInput() // Game logic/rule
         else
         {
             printf(" RIP \n"); // The bird hit the wall
-            exit(0);
+            return 1;          // 1 == dead
         }
     }
 
@@ -107,9 +111,10 @@ void updateWithoutInput() // Game logic/rule
     else
     {
         printf(" RIP \n");
-        exit(0);
+        return 1; // 1 = dead
     }
-    Sleep(125); //Speed game(<75 == godly)
+    Sleep(125); // Speed game(<75 == godly)
+    return 0;
 }
 
 void updateWithInput() // Updates related to user input
