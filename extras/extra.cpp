@@ -77,6 +77,14 @@ void clearScreen() {
 #endif
 }
 
+void to_lower(char *ch)
+{
+    if (*ch >= 'A' && *ch <= 'Z')
+    {
+        *ch += 32;
+    }
+}
+
 
 // int main() {
 //     char *gamefolder = getSaveGameFolder();

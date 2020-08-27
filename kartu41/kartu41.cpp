@@ -17,14 +17,6 @@ void print_x_times(char ch, int x)
     }
 }
 
-void to_lower(char *ch)
-{
-    if (*ch >= 'A' && *ch <= 'Z')
-    {
-        *ch += 32;
-    }
-}
-
 int determine_max_and_combine(int dataset[4])
 {
     int n_pos = 0;
