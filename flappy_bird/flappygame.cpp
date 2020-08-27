@@ -6,65 +6,55 @@
 #include "flappygame.h"
 #include "../extras/extra.h"
 
-int high, width;         // The border
-int bird_x, bird_y;      // The bird coordinates
-int bar_y;               // Baffle coordinates
-int bar_xTop, bar_xDown; // Upper and lower coordinates of the baffle opening
-int score;               // score
-int check;
+FlappyTheBird::FlappyTheBird(void) {
+    this->score = 0;
 
-void WingUp()
-{
-    puts("\\");
-    puts("<\\=Q");
+    this->high;
+    this->width;
+
+    this->bird_x;
+    this->bird_y;
+    this->bar_y;
+
+    this->bar_xDown;
+    this->bar_xTop;
 }
 
-void WingDown()
+void FlappyTheBird::startup_bird() // Data initialization
 {
-    puts("<//=Q");
-    puts("//");
-}
+    this->high = 18; // Initialization boundary
+    this->width = 26;
 
-void replay()
-{
-	
-}
+    this->bird_x = this->high / 2; // Initializes the bird coordinates
+    this->bird_y = this->width / 2;
 
-void startup_bird() // Data initialization
-{
-    high = 18; // Initialization boundary
-    width = 26;
+    this->bar_y = this->width; // Baffle coordinates
 
-    bird_x = high / 2; // Initializes the bird coordinates
-    bird_y = width / 2;
+    this->bar_xTop = this->high / 2; // Baffle opening
+    this->bar_xDown = this->bar_xTop + 4;
 
-    bar_y = width; // Baffle coordinates
-
-    bar_xTop = high / 2; // Baffle opening
-    bar_xDown = bar_xTop + 4;
-
-    score = 0; // score
+    this->score = 0; // score
 
     hideCursor(); // Hide the cursor
 }
 
-void show_bird() // display
+void FlappyTheBird::show_bird() // display
 {
     int i, j;
     setCursorPosition(0, 0);
-    for (i = 0; i <= high + 1; i++)
+    for (i = 0; i <= this->high + 1; i++)
     {
-        for (j = 0; j <= width; j++)
+        for (j = 0; j <= this->width; j++)
         {
-            if ((i == bird_x) && (j == bird_y))
+            if ((i == this->bird_x) && (j == this->bird_y))
             {
                 printf(">");
             } // Output the bird
-            else if (i == high + 1)
+            else if (i == this->high + 1)
             {
                 printf("_");
             } // Output lower boundary
-            else if ((j == bar_y) && ((i <= bar_xTop) || (i >= bar_xDown)))
+            else if ((j == this->bar_y) && ((i <= this->bar_xTop) || (i >= this->bar_xDown)))
             {
                 printf("||");
             } // Output damper
@@ -75,16 +65,16 @@ void show_bird() // display
         }
         printf("\n");
     }
-    printf("Score: %d\n", score);
+    printf("Score: %d\n", this->score);
 }
 
-int updateWithoutInput() // Game logic/rule
+int FlappyTheBird::updateWithoutInput() // Game logic/rule
 {
-    if (bird_y == bar_y - 1)
+    if (this->bird_y == this->bar_y - 1)
     {
-        if ((bird_x > bar_xTop) && (bird_x < bar_xDown))
+        if ((this->bird_x > this->bar_xTop) && (this->bird_x < this->bar_xDown))
         {
-            score++;
+            this->score++;
         } // Birds score points by opening the baffle
         else
         {
@@ -93,20 +83,20 @@ int updateWithoutInput() // Game logic/rule
         }
     }
 
-    if (bar_y > 0)
+    if (this->bar_y > 0)
     {
-        bar_y--;
+        this->bar_y--;
     }
     else
     {
-        bar_y = width;
-        bar_xTop = rand() % (high - 4);
-        bar_xDown = bar_xTop + 4;
+        this->bar_y = this->width;
+        this->bar_xTop = rand() % (this->high - 4);
+        this->bar_xDown = this->bar_xTop + 4;
     }
 
-    if (bird_x < high + 1)
+    if (this->bird_x < this->high + 1)
     {
-        bird_x++;
+        this->bird_x++;
     }
     else
     {
@@ -117,16 +107,16 @@ int updateWithoutInput() // Game logic/rule
     return 0;
 }
 
-void updateWithInput() // Updates related to user input
+void FlappyTheBird::updateWithInput() // Updates related to user input
 {
     char input;
     if (kbhit())
     {
         input = getch();
-        if ((input == ' ') && (bird_x > 0) && (bird_x <= high))
+        if ((input == ' ') && (this->bird_x > 0) && (this->bird_x <= this->high))
         {
             // Bird jumps up
-            bird_x = bird_x - 2;
+            this->bird_x = this->bird_x - 2;
         }
     }
 }

@@ -12,6 +12,7 @@
 
 #include "flappygame.h"
 #include "flappy_menu.h"
+#include "highscore.h"
 #include "../extras/extra.h"
 
 #define keyUp 72 // arrow keys
@@ -34,6 +35,7 @@ void screenTitle(int *num)
 							   {1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1},
 							   {1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1}};
 
+	clearScreen();
 	setCursorPosition(0, 0);
 
 	puts("");
@@ -138,13 +140,14 @@ int flappy_bird()
 				{
 				case 0:
 				{
+					FlappyTheBird birdy;
 					clearScreen();
-					startup_bird();
+					birdy.startup_bird();
 					while (1)
 					{
-						show_bird();
-						temp = updateWithoutInput();
-						updateWithInput();
+						birdy.show_bird();
+						temp = birdy.updateWithoutInput();
+						birdy.updateWithInput();
 						if (temp == 1)
 						{
 							int exit_code = 0;
@@ -161,7 +164,7 @@ int flappy_bird()
 										temp = 0;
 										do_break = 1;
 										clearScreen();
-										startup_bird();
+										birdy.startup_bird();
 										break;
 									case 'n':
 										exit_code = 1;
@@ -171,6 +174,7 @@ int flappy_bird()
 										break;
 								}
 								if (do_break) {
+									inputUsername(birdy.score);
 									break;
 								}
 							}
@@ -179,9 +183,12 @@ int flappy_bird()
 							}
 						}
 					}
+					break;
 				}
 				case 1:
 				{
+					printLeaderboard();
+					break;
 				}
 				case 2:
 				{
