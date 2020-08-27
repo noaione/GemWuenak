@@ -2,13 +2,48 @@
 #include <stdio.h>
 #include <time.h>
 #include <windows.h>
+#include <iostream>
+
 
 #include "kartu41.h"
 #include "../extras/extra.h"
+using namespace std;
 
 // A port of kisanak kartu41 in Python
 // to C++ lang
 
+void judulnya(){
+    printf("\n/ $$   /$$ /$$$$$$  /$$$$$$$  /$$$$$$$$ /$$   /$$       /$$   /$$   /$$\n");
+        for (int i = 0; i < 300000000; i++) {
+            ;
+        }
+    printf("| $$  /$$ /$$__  $$| $$__  $$|__  $$__/| $$  | $$      | $$  | $$ /$$$$\n");
+        for (int i = 0; i < 30000000; i++) {
+            ;
+        }
+    printf("| $$ /$$/| $$   \ $$| $$  \ $$    | $$   | $$  | $$      | $$  | $$|_  $$\n");
+        for (int i = 0; i < 100000000; i++) {
+            ;
+        }
+    printf("| $$$$$/ | $$$$$$$$| $$$$$$$/   | $$   | $$  | $$      | $$$$$$$$  | $$\n");
+        for (int i = 0; i < 100000000; i++) {
+            ;
+        }
+    printf("| $$  $$ | $$__  $$| $$__  $$   | $$   | $$  | $$      |_____  $$  | $$\n");
+        for (int i = 0; i < 100000000; i++) {
+            ;
+        }
+    printf("| $$\  $$ | $$  | $$| $$  \ $$    | $$   | $$  | $$            | $$  | $$\n");
+        for (int i = 0; i < 100000000; i++) {
+            ;
+        }
+    printf("| $$ \  $$| $$  | $$| $$  | $$   | $$   |  $$$$$$/            | $$ /$$$$$$\n");
+        for (int i = 0; i < 100000000; i++) {
+            ;
+        }
+    printf("|__/  \__/|__/  |__/|__/  |__/   |__/     \______/             |__/|______/\n");
+                                                                         
+}
 void print_x_times(char ch, int x)
 {
     for (int i = 0; i < x; i++)
@@ -97,6 +132,7 @@ public:
     {
 #ifndef DEBUGGAME
         clearScreen();
+        judulnya();
         setCursorPosition(0, 0);
 #endif
         printf("Membagikan kartu...\n");
