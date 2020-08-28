@@ -2,12 +2,9 @@
 #include <stdio.h>
 #include <time.h>
 #include <windows.h>
-#include <iostream>
-
 
 #include "kartu41.h"
 #include "../extras/extra.h"
-using namespace std;
 
 // A port of kisanak kartu41 in Python
 // to C++ lang
@@ -21,7 +18,7 @@ void judulnya(){
         for (int i = 0; i < 30000000; i++) {
             ;
         }
-    printf("| $$ /$$/| $$   \ $$| $$  \ $$    | $$   | $$  | $$      | $$  | $$|_  $$\n");
+    printf("| $$ /$$/| $$   \\ $$| $$  \\ $$    | $$   | $$  | $$      | $$  | $$|_  $$\n");
         for (int i = 0; i < 100000000; i++) {
             ;
         }
@@ -33,15 +30,15 @@ void judulnya(){
         for (int i = 0; i < 100000000; i++) {
             ;
         }
-    printf("| $$\  $$ | $$  | $$| $$  \ $$    | $$   | $$  | $$            | $$  | $$\n");
+    printf("| $$\\  $$ | $$  | $$| $$  \\ $$    | $$   | $$  | $$            | $$  | $$\n");
         for (int i = 0; i < 100000000; i++) {
             ;
         }
-    printf("| $$ \  $$| $$  | $$| $$  | $$   | $$   |  $$$$$$/            | $$ /$$$$$$\n");
+    printf("| $$ \\ $$| $$  | $$| $$  | $$   | $$   |  $$$$$$/            | $$ /$$$$$$\n");
         for (int i = 0; i < 100000000; i++) {
             ;
         }
-    printf("|__/  \__/|__/  |__/|__/  |__/   |__/     \______/             |__/|______/\n");
+    printf("|__/  \\__/|__/  |__/|__/  |__/   |__/     \\______/             |__/|______/\n");
                                                                          
 }
 

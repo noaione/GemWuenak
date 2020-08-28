@@ -19,4 +19,4 @@ private:
     int bar_xTop, bar_xDown; // Upper and lower coordinates of the baffle opening
 };
 
-#endif /* EXTRA_STUFF_H */
+#endif /* FLAPPY_GAME_H */
