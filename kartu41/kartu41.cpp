@@ -1,73 +1,108 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
+#ifdef _WIN32
 #include <windows.h>
+#include <conio.h>
+#else
+#include <ncurses.h>
+#include "../extras/unix_support.h"
+#endif
 
 #include "kartu41.h"
 #include "../extras/extra.h"
 
+#define keyUp 72 // arrow keys
+#define keyDown 80
+#define keyLeft 75
+#define keyRight 77
+#define keyEnter 13
+
 // A port of kisanak kartu41 in Python
 // to C++ lang
 
-void judulnya(){
+void judulnya(int skip_wait = 0)
+{
     printf("\n/ $$   /$$ /$$$$$$  /$$$$$$$  /$$$$$$$$ /$$   /$$       /$$   /$$   /$$\n");
-        for (int i = 0; i < 300000000; i++) {
+    if (!skip_wait) {
+        for (int i = 0; i < 300000000; i++)
+        {
             ;
         }
+    }
     printf("| $$  /$$ /$$__  $$| $$__  $$|__  $$__/| $$  | $$      | $$  | $$ /$$$$\n");
-        for (int i = 0; i < 30000000; i++) {
+    if (!skip_wait) {
+        for (int i = 0; i < 30000000; i++)
+        {
             ;
         }
+    }
     printf("| $$ /$$/| $$   \\ $$| $$  \\ $$    | $$   | $$  | $$      | $$  | $$|_  $$\n");
-        for (int i = 0; i < 100000000; i++) {
+    if (!skip_wait) {
+        for (int i = 0; i < 100000000; i++)
+        {
             ;
         }
+    }
     printf("| $$$$$/ | $$$$$$$$| $$$$$$$/   | $$   | $$  | $$      | $$$$$$$$  | $$\n");
-        for (int i = 0; i < 100000000; i++) {
+    if (!skip_wait) {
+        for (int i = 0; i < 100000000; i++)
+        {
             ;
         }
+    }
     printf("| $$  $$ | $$__  $$| $$__  $$   | $$   | $$  | $$      |_____  $$  | $$\n");
-        for (int i = 0; i < 100000000; i++) {
+    if (!skip_wait) {
+        for (int i = 0; i < 100000000; i++)
+        {
             ;
         }
+    }
     printf("| $$\\  $$ | $$  | $$| $$  \\ $$    | $$   | $$  | $$            | $$  | $$\n");
-        for (int i = 0; i < 100000000; i++) {
+    if (!skip_wait) {
+        for (int i = 0; i < 100000000; i++)
+        {
             ;
         }
+    }
     printf("| $$ \\ $$| $$  | $$| $$  | $$   | $$   |  $$$$$$/            | $$ /$$$$$$\n");
-        for (int i = 0; i < 100000000; i++) {
+    if (!skip_wait) {
+        for (int i = 0; i < 100000000; i++)
+        {
             ;
         }
+    }
     printf("|__/  \\__/|__/  |__/|__/  |__/   |__/     \\______/             |__/|______/\n");
-                                                                         
 }
 
-void howToPlay() {
-	puts("			How To Play");
-	puts("");
-	puts("1. Dalam setiap permainan kartu 41 terdapat 4 pemain.");
-	puts("2. Masing - masing pemain akan mendapatkan 4 buah kartu secara acak.");
-	puts("3. Pemain pertama akan mengambil sebuah kartu dari deck.");
-	puts("4. Lalu pemain akan memilih salah satu kartu untuk dibuang ke pemain lain");
-	puts("5. Pemain berikutnya bisa memilih antara mengambil kartu buangan atau");
-	puts("   mengambil satu kartu dari deck.");
-	puts("6. Pemain dengan kartu nilai 41 atau dengan kartu tertinggi setelah deck");
-	puts("   habis adalah pemenang.");
+void howToPlay()
+{
+    puts("			How To Play");
+    puts("");
+    puts("1. Dalam setiap permainan kartu 41 terdapat 4 pemain.");
+    puts("2. Masing - masing pemain akan mendapatkan 4 buah kartu secara acak.");
+    puts("3. Pemain pertama akan mengambil sebuah kartu dari deck.");
+    puts("4. Lalu pemain akan memilih salah satu kartu untuk dibuang ke pemain lain");
+    puts("5. Pemain berikutnya bisa memilih antara mengambil kartu buangan atau");
+    puts("   mengambil satu kartu dari deck.");
+    puts("6. Pemain dengan kartu nilai 41 atau dengan kartu tertinggi setelah deck");
+    puts("   habis adalah pemenang.");
 }
 
-void aimOfTheGame() {
-	puts("				Aim of The Game");
-	puts("");
-	puts("	Dalam permainan kartu 41, pemain bersaing untuk mendapatkan kartu berjumlah 41");
-	puts("duluan. Pemain harus mengumpulkan kartu dengan jenis yang sama(hati, diamond, sekop,");
-	puts("atau keriting). Setiap kartu memiliki nilai sesuai angka di kartunya. Lalu untuk kartu");
-	puts("tanpa angka skornya yaitu : ");
-	puts("1. Kartu As (ace) bernilai 11 poin.");
-	puts("2. Kartu King, Queen, dan Jack masing masing bernilai 10 poin.");
-	puts("3. Kartu 2 - 10 bernilai sama dengan angka.");
-	puts("");
-	puts("Pemenang adalah pemain yang mendapatkan kartu 41 pertama, atau yang memiliki total");
-	puts("poin paling banyak setelah deck habis.");
+void aimOfTheGame()
+{
+    puts("				Aim of The Game");
+    puts("");
+    puts("	Dalam permainan kartu 41, pemain bersaing untuk mendapatkan kartu berjumlah 41");
+    puts("duluan. Pemain harus mengumpulkan kartu dengan jenis yang sama(hati, diamond, sekop,");
+    puts("atau keriting). Setiap kartu memiliki nilai sesuai angka di kartunya. Lalu untuk kartu");
+    puts("tanpa angka skornya yaitu : ");
+    puts("1. Kartu As (ace) bernilai 11 poin.");
+    puts("2. Kartu King, Queen, dan Jack masing masing bernilai 10 poin.");
+    puts("3. Kartu 2 - 10 bernilai sama dengan angka.");
+    puts("");
+    puts("Pemenang adalah pemain yang mendapatkan kartu 41 pertama, atau yang memiliki total");
+    puts("poin paling banyak setelah deck habis.");
 }
 
 void print_x_times(char ch, int x)
@@ -113,7 +148,7 @@ class Kartu41
 {
 public:
     bool gameover;
-    int winner;    
+    int winner;
     int playerDeck[5], botDeck[5];
 
     Kartu41(void)
@@ -158,7 +193,6 @@ public:
     {
 #ifndef DEBUGGAME
         clearScreen();
-        judulnya();
         setCursorPosition(0, 0);
 #endif
         printf("Membagikan kartu...\n");
@@ -167,8 +201,6 @@ public:
             this->playerDeck[i] = draw_card();
             this->botDeck[i] = draw_card();
         }
-        // int firstStack = draw_card(2);
-        // stack_controller(0, firstStack);
         printf("Memeriksa kartu awal...\n");
         check_card_stack();
         printf("Memulai game...\n");
@@ -505,6 +537,7 @@ public:
             }
         }
     }
+
 private:
     CardSuites suites;
     int mainDeck[52], stackDeck[52];
@@ -521,8 +554,10 @@ private:
         switch (mode)
         {
         case 0:
-            for (int i = 0; i < 52; i++) {
-                if (this->stackDeck[i] == -1) {
+            for (int i = 0; i < 52; i++)
+            {
+                if (this->stackDeck[i] == -1)
+                {
                     this->stackDeck[i] = card;
                     this->latestCard = card;
                     break;
@@ -532,7 +567,8 @@ private:
         case 1:
             // Get latest and remove.
             int card_n = -1;
-            for (int i = 51; i >= 0; i--) {
+            for (int i = 51; i >= 0; i--)
+            {
                 if (this->stackDeck[i] != -1)
                 {
                     card_n = this->stackDeck[i];
@@ -556,8 +592,10 @@ private:
         switch (mode)
         {
         case 0:
-            for (int i = 0; i < 5; i++) {
-                if (player == 0) {
+            for (int i = 0; i < 5; i++)
+            {
+                if (player == 0)
+                {
                     if (this->playerDeck[i] == -1)
                     {
                         this->playerDeck[i] = card;
@@ -633,7 +671,100 @@ private:
 // Untuk tes, bisa rename ke main()
 int kartu41_game()
 {
-    Kartu41 game;
-    game.start_game();
+    char key;
+    char trash;
+    int is_first = 1;
+    int currPos = 0;
+    int not_exit = true;
+    int after_tut = 0;
+    char options[3][15] = {"Main", "Tutorial", "Exit"};
+    hideCursor();
+    while (not_exit)
+    {
+        if (is_first) {
+            clearScreen();
+            setCursorPosition(0, 0);
+            judulnya();
+            is_first = 0;
+        } else {
+            if (after_tut) {
+                clearScreen();
+                setCursorPosition(0, 0);
+                judulnya(1);
+                after_tut = 0;
+            }
+            setCursorPosition(0, 9);
+            // judulnya(1);
+        }
+        puts("");
+        printf("                       %c                            %c\n", char(186), char(186));
+        for (int i = 0; i < 3; i++)
+        {
+            printf("                       %c   ", char(186));
+            if (currPos == i)
+                printf(">>   ");
+            else
+                printf("     ");
+
+            printf("%s", options[i]);
+            for (int j = strlen(options[i]); j < 12; j++)
+                printf(" ");
+
+            if (currPos == i)
+                printf("   <<");
+            else
+                printf("     ");
+            printf("   %c", char(186));
+            puts("");
+        }
+        printf("                       %c                            %c\n", char(186), char(186));
+        printf("                       ");
+        if (kbhit())
+        {
+            key = getch();
+            if ((key == keyUp || key == keyLeft) && currPos != 0)
+                currPos--;
+            else if ((key == keyDown || key == keyRight) && currPos != 2)
+                currPos++;
+            else if (key == keyEnter)
+            {
+                switch (currPos)
+                {
+                case 0:
+                {
+                    Kartu41 game;
+                    game.start_game();
+                    printf("\nGame selesai, ketik enter untuk melanjutkan.");
+                    scanf("%c", &trash);
+                    break;
+                }
+                case 1:
+                {
+                    clearScreen();
+                    setCursorPosition(0, 0);
+                    judulnya(1);
+                    puts("");
+                    howToPlay();
+                    printf("\nEnter untuk melanjutkan.");
+                    scanf("%c", &trash);
+                    clearScreen();
+                    setCursorPosition(0, 0);
+                    judulnya(1);
+                    puts("");
+                    aimOfTheGame();
+                    printf("\nEnter untuk selesai.");
+                    scanf("%c", &trash);
+                    after_tut = 1;
+                    break;
+                }
+                case 2:
+                {
+                    not_exit = 0;
+                    break;
+                }
+                }
+            }
+        }
+    }
     return 0;
 }
