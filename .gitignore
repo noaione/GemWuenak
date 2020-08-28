@@ -33,3 +33,6 @@
 
 .vscode
 build/
+
+# Score file
+flappy_*.txt
