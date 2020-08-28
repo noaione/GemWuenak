@@ -766,5 +766,6 @@ int kartu41_game()
             }
         }
     }
+    reshowCursor();
     return 0;
 }

@@ -82,6 +82,7 @@ void inputUsername(int score) {
 
 	puts("");
 
+	reshowCursor();
 	puts("\tInput username: (length must be between 2 - 16 characters)");
 	do {
 		printf("\t");
@@ -103,6 +104,7 @@ void inputUsername(int score) {
 			printf("\r");
 		}
 	} while(len < 2 or len > 16);
+	hideCursor();
 
 	highscore player;
 	strcpy(player.name, username);

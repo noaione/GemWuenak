@@ -47,7 +47,6 @@ void screenTitle(int *num)
 			}
 		}
 		puts("");
-		hideCursor();
 	}
 }
 
@@ -62,6 +61,7 @@ int flappy_bird()
 	char options[3][15] = {"Play", "Highscore", "Exit"};
 	do
 	{
+		hideCursor();
         if (is_first) {
             clearScreen();
             setCursorPosition(0, 0);
@@ -191,5 +191,6 @@ int flappy_bird()
 
 	} while (x != 0);
 
+	reshowCursor();
 	return 0;
 }

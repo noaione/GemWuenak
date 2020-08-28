@@ -50,6 +50,7 @@ int main() {
     while (!destroy) {
         clearScreen();
         setCursorPosition(0, 0);
+        hideCursor();
         screenTitle();
 
         char flap[15] = "1. Flappy bird";
@@ -77,6 +78,7 @@ int main() {
             Sleep(50);
         }
         puts("");
+        reshowCursor();
         int gameCursor = -1;
         while (gameCursor == -1)
         {
