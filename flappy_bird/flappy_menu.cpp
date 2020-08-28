@@ -35,38 +35,16 @@ void screenTitle(int *num)
 							   {1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1},
 							   {1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1}};
 
-	clearScreen();
-	setCursorPosition(0, 0);
-
-	puts("");
 	for (int i = 0; i < 10; i++)
 	{
 		printf("     ");
 		for (int j = 0; j < 94; j++)
 		{
-			if (titleScreen[i][j])
-			{
-				int state = (j + *num + 3 * i) % 69;
-				if ((0 <= state and state <= 9) or (60 <= state and state <= 69))
-				{
-					printf("%c", char(176));
-				}
-				else if ((10 <= state and state <= 19) or (50 <= state and state <= 59))
-				{
-					printf("%c", char(177));
-				}
-
-				else if ((20 <= state and state <= 29) or (40 <= state and state <= 49))
-				{
-					printf("%c", char(178));
-				}
-				else
-				{
-					printf("%c", char(219));
-				}
-			}
-			else
+			if (titleScreen[i][j]) {
+				printf("#");
+			} else {
 				printf(" ");
+			}
 		}
 		puts("");
 		hideCursor();
@@ -78,12 +56,21 @@ int flappy_bird()
 {
 	char key;
 	int x = 1;
+	int is_first = 1;
 	int num;
 	int currPos = 0;
 	char options[3][15] = {"Play", "Highscore", "Exit"};
 	do
 	{
-		screenTitle(&num);
+        if (is_first) {
+            clearScreen();
+            setCursorPosition(0, 0);
+            screenTitle(&num);
+            is_first = 0;
+        } else {
+            setCursorPosition(0, 10);
+        }
+		
 		num += 68;
 		printf("                       ");
 		for (int i = 0; i < 30; i++)
@@ -132,7 +119,7 @@ int flappy_bird()
 			key = getch();
 			if ((key == keyUp or key == keyLeft) and currPos != 0)
 				currPos--;
-			else if ((key == keyDown or key == keyRight) and currPos != 6)
+			else if ((key == keyDown or key == keyRight) and currPos != 2)
 				currPos++;
 			else if (key == keyEnter)
 			{
@@ -175,6 +162,7 @@ int flappy_bird()
 								}
 								if (do_break) {
 									inputUsername(birdy.score);
+									is_first = 1;
 									break;
 								}
 							}
@@ -188,6 +176,7 @@ int flappy_bird()
 				case 1:
 				{
 					printLeaderboard();
+					is_first = 1;
 					break;
 				}
 				case 2:
