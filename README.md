@@ -22,6 +22,7 @@ To get debug/extra output, add `-DDEBUGGAME` flags. `(mainly for Kartu41)`
     - Adding header file to almost everything.
     - All Extras code
     - Reimplement main Flappy Bird code to Class.
+    - Main main menu implementation.
 - **kisanak**
     - Kartu41 original code and Idea
 - **PsychSylv**
