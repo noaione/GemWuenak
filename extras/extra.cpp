@@ -58,6 +58,15 @@ void hideCursor() {
 #endif
 }
 
+void reshowCursor() {
+#ifdef _WIN32
+    CONSOLE_CURSOR_INFO cursor_info = {1, 10};
+    SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursor_info);
+#else
+    printf("\e[?25h");
+#endif
+}
+
 void setCursorPosition(int x, int y) {
 #ifdef _WIN32
 	COORD cursorPosition; 
