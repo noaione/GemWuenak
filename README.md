@@ -1,6 +1,9 @@
 # GemWuenak
 Final Project Algorithm Bootcamp Batch 3
 
+Windows only (Karena memakai module `windows.h`)<br>
+**N4O**: Niatnya mau bikin biar bisa di Windows/Linux/MacOS, tapi butuh library `ncurses` dan implementasi beberapa function lagi.
+
 ## Compiling and Running
 `g++ main.cpp pong/ponggame.cpp flappy_bird/flappy_menu.cpp flappy_bird/flappygame.cpp flappy_bird/highscore.cpp kartu41/kartu41.cpp extras/extra.cpp -o GemWuenak`<br>
 `./GemWuenak`
