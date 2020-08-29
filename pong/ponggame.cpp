@@ -124,7 +124,7 @@ class Ping_Pong{ //Main var
 			this->up_1 = 'q'; 
 			this->up_2 = 'p'; 
 			this->down_1 = 'a'; 
-			this->down_2 = 's'; 
+			this->down_2 = 'l'; 
 			this->score_1 = 0; 
 			this->score_2 = 0;
 			
