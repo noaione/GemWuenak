@@ -171,41 +171,41 @@ public:
                 }
                 else if (player_1->x == j && player_1->y + 2 == i)
                 {
-                    puts("\xDB");
+                    printf("\xDB");
                 }
                 else if (player_1->x == j && player_1->y + 3 == i)
                 {
-                    puts("\xDB");
+                    printf("\xDB");
                 }
                 else if (player_2->x == j && player_2->y == i)
                 {
-                    puts("\xDB");
+                    printf("\xDB");
                 }
                 else if (player_2->x == j && player_2->y + 1 == i)
                 {
-                    puts("\xDB");
+                    printf("\xDB");
                 }
                 else if (player_2->x == j && player_2->y + 2 == i)
                 {
-                    puts("\xDB");
+                    printf("\xDB");
                 }
                 else if (player_2->x == j && player_2->y + 3 == i)
                 {
-                    puts("\xDB");
+                    printf("\xDB");
                 }
                 else
                 {
-                    puts("");
+                    printf("");
                 }
                 if (j == width - 1)
                 {
-                    puts("\xB2");
+                    printf("\xB2");
                 }
             }
         }
         for (int i = 0; i < width + 2; i++)
         {
-            puts("\xB2");
+            printf("\xB2");
         }
         puts("");
         printf("Score 1 : %d", score_1);
