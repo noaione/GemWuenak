@@ -319,10 +319,16 @@ public:
         card_controller(1, 0, card);
         int throw_card = (rand() % (5 - 1 + 1)) + 1;
         throw_card--;
+#ifdef DEBUGGAME
+        printf("Bot throwed card index %d, bot have %d %d %d %d %d on their hand\n", throw_card, this->botDeck[0], this->botDeck[1], this->botDeck[2], this->botDeck[3], this->botDeck[4]);
+#endif
         int throwen_card = this->botDeck[throw_card];
         card_controller(1, 1, throw_card);
         stack_controller(0, throwen_card);
         stack_card_to_left(1);
+#ifdef DEBUGGAME
+        printf("After throwing that card, bot now have %d %d %d %d %d on their hand\n", this->botDeck[0], this->botDeck[1], this->botDeck[2], this->botDeck[3], this->botDeck[4]);
+#endif
     }
     void print_stack()
     {
@@ -354,6 +360,9 @@ public:
                 amount_to_print++;
             }
         }
+#ifdef DEBUGGAME
+        printf("Total to print: %d\nKartu ditangan: %d %d %d %d %d\n", amount_to_print, this->playerDeck[0], this->playerDeck[1], this->playerDeck[2], this->playerDeck[3], this->playerDeck[4]);
+#endif
         printf("Kartu Tangan:\n");
         for (int i = 0; i < amount_to_print; i++)
         {
@@ -468,7 +477,7 @@ public:
             }
         }
 #ifdef DEBUGGAME
-        printf("P: %d %d %d %d\n", playerSuitesSet[0], playerSuitesSet[1], playerSuitesSet[2], playerSuitesSet[3]);
+        printf("Player Score: %d %d %d %d\n", playerSuitesSet[0], playerSuitesSet[1], playerSuitesSet[2], playerSuitesSet[3]);
 #endif
         this->player_score = determine_max_and_combine(playerSuitesSet);
         if (this->player_score >= 41)
@@ -502,7 +511,7 @@ public:
             }
         }
 #ifdef DEBUGGAME
-        printf("B: %d %d %d %d\n", playerSuitesSet[0], playerSuitesSet[1], playerSuitesSet[2], playerSuitesSet[3]);
+        printf("Bot Score: %d %d %d %d\n", botSuitesSet[0], botSuitesSet[1], botSuitesSet[2], botSuitesSet[3]);
 #endif
         this->bot_score = determine_max_and_combine(botSuitesSet);
         if (this->bot_score >= 41)
@@ -614,55 +623,64 @@ private:
             if (player == 0)
             {
                 this->playerDeck[card] = -1;
-                // printf("%d %d %d %d %d\n", this->playerDeck[0], this->playerDeck[1], this->playerDeck[2], this->playerDeck[3], this->playerDeck[4]);
             }
             else if (player == 1)
             {
-                this->playerDeck[card] = -1;
+                this->botDeck[card] = -1;
             }
             break;
         }
     }
     void stack_card_to_left(int player)
     {
-        int new_data[5] = {-1};
-        int card_cnt = 0;
         switch (player)
         {
         case 0:
-#ifdef DEBUGGAME
-            printf("%d %d %d %d %d\n", this->playerDeck[0], this->playerDeck[1], this->playerDeck[2], this->playerDeck[3], this->playerDeck[4]);
-#endif
-            for (int i = 0; i < 5; i++)
             {
-                if (this->playerDeck[i] != -1)
+#ifdef DEBUGGAME
+                printf("Stack player deck to left (before): %d %d %d %d %d\n", this->playerDeck[0], this->playerDeck[1], this->playerDeck[2], this->playerDeck[3], this->playerDeck[4]);
+#endif
+                int player_data[5] = {-1, -1, -1, -1, -1};
+                int player_count = 0;
+                for (int i = 0; i < 5; i++)
                 {
-                    new_data[card_cnt] = this->playerDeck[i];
-                    card_cnt++;
+                    if (this->playerDeck[i] != -1)
+                    {
+                        player_data[player_count++] = this->playerDeck[i];
+                    }
                 }
-            }
-            for (int i = 0; i < 5; i++)
-            {
-                this->playerDeck[i] = new_data[i];
-            }
+                for (int i = 0; i < 5; i++)
+                {
+                    this->playerDeck[i] = player_data[i];
+                }
 #ifdef DEBUGGAME
-            printf("%d %d %d %d %d\n", this->playerDeck[0], this->playerDeck[1], this->playerDeck[2], this->playerDeck[3], this->playerDeck[4]);
+                printf("Stack player deck to left (after): %d %d %d %d %d\n", this->playerDeck[0], this->playerDeck[1], this->playerDeck[2], this->playerDeck[3], this->playerDeck[4]);
 #endif
-            break;
+                break;
+            }
         case 1:
-            for (int j = 0; j < 5; j++)
             {
-                if (this->botDeck[j] != -1)
+#ifdef DEBUGGAME
+                printf("Stack bot deck to left (before): %d %d %d %d %d\n", this->botDeck[0], this->botDeck[1], this->botDeck[2], this->botDeck[3], this->botDeck[4]);
+#endif
+                int bot_data[5] = {-1, -1, -1, -1, -1};
+                int bot_count = 0;
+                for (int j = 0; j < 5; j++)
                 {
-                    new_data[card_cnt] = this->botDeck[j];
-                    card_cnt++;
+                    if (this->botDeck[j] != -1)
+                    {
+                        bot_data[bot_count++] = this->botDeck[j];
+                    }
                 }
+                for (int j = 0; j < 5; j++)
+                {
+                    this->botDeck[j] = bot_data[j];
+                }
+#ifdef DEBUGGAME
+                printf("Stack bot deck to left (after): %d %d %d %d %d\n", this->botDeck[0], this->botDeck[1], this->botDeck[2], this->botDeck[3], this->botDeck[4]);
+#endif
+                break;
             }
-            for (int j = 0; j < 5; j++)
-            {
-                this->botDeck[j] = new_data[j];
-            }
-            break;
         }
     }
 };
