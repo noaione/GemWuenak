@@ -7,7 +7,7 @@
 // Import flappy bird.
 #include "flappy_bird/flappy_menu.h"
 // Import Kartu 41.
-#include "kartu41/kartu41.h"
+#include "kartu41/kartu41_menu.h"
 
 // N4O: someone please make the main menu, kthx.
 // extra.h contain some function like
