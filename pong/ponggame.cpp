@@ -141,9 +141,18 @@ class Ping_Pong{ //Main var
 			if (player == player_1) score_1+=5; 
 			else score_2+=5;
 			
-			ball->reset_ball(); 
-			player_1->blade_reset(); 
-			player_2->blade_reset();
+			if(player >= 25){
+				puts("");
+				puts("");
+				if (player == player_1) puts("PLAYER 1 WINS!!"); 
+				else puts("PLAYER 2 WINS!!"); 
+				terminate = true;
+			}else{
+				ball->reset_ball(); 
+				player_1->blade_reset(); 
+				player_2->blade_reset();
+			}
+			
 		}
 		
 		
