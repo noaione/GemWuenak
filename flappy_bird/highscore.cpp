@@ -190,39 +190,83 @@ void printLeaderboard()
 					for (int i = 0; i < 68; i++)
 					{
 						if (i == 0)
+#ifdef FALLBACKASCII
 							printf("%c", char(201));
+#else
+							printf("╔");
+#endif
 						else if (i == 33)
+#ifdef FALLBACKASCII
 							printf("%c", char(203));
+#else
+							printf("╦");
+#endif
 						else if (i == 67)
+#ifdef FALLBACKASCII
 							printf("%c", char(187));
+#else
+							printf("╗");
+#endif
 						else
+#ifdef FALLBACKASCII
 							printf("%c", char(205));
+#else
+							printf("═");
+#endif
 					}
 					puts("");
 
+#ifdef FALLBACKASCII
 					printf("\t%c", char(186));
+#else
+					printf("\t║");
+#endif
 					printf("  %s", leaderboard[i].name);
 
 					int len = strlen(leaderboard[i].name);
 					for (int j = len; j < 16; j++)
 						printf(" ");
+#ifdef FALLBACKASCII
 					printf("\t\t %c                            ", char(186));
+#else
+					printf("\t\t ║                            ");
+#endif
 
 					printf("%03d  ", leaderboard[i].score);
+#ifdef FALLBACKASCII
 					printf("%c", char(186));
+#else
+					printf("║");
+#endif
 					puts("");
 
 					printf("\t");
 					for (int i = 0; i < 68; i++)
 					{
 						if (i == 0)
+#ifdef FALLBACKASCII
 							printf("%c", char(200));
+#else
+							printf("╚");
+#endif
 						else if (i == 33)
+#ifdef FALLBACKASCII
 							printf("%c", char(202));
+#else
+							printf("╩");
+#endif
 						else if (i == 67)
+#ifdef FALLBACKASCII
 							printf("%c", char(188));
+#else
+							printf("╝");
+#endif
 						else
+#ifdef FALLBACKASCII
 							printf("%c", char(205));
+#else
+							printf("═");
+#endif
 					}
 					puts("");
 				}

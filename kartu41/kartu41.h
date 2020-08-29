@@ -5,59 +5,6 @@
 
 typedef struct CardSuites
 {
-    char fullDecks[52][10] = {
-        "A♣",
-        "2♣",
-        "3♣",
-        "4♣",
-        "5♣",
-        "6♣",
-        "7♣",
-        "8♣",
-        "9♣",
-        "10♣",
-        "J♣",
-        "Q♣",
-        "K♣",
-        "A♦",
-        "2♦",
-        "3♦",
-        "4♦",
-        "5♦",
-        "6♦",
-        "7♦",
-        "8♦",
-        "9♦",
-        "10♦",
-        "J♦",
-        "Q♦",
-        "K♦",
-        "A♥",
-        "2♥",
-        "3♥",
-        "4♥",
-        "5♥",
-        "6♥",
-        "7♥",
-        "8♥",
-        "9♥",
-        "10♥",
-        "J♥",
-        "Q♥",
-        "K♥",
-        "A♠",
-        "2♠",
-        "3♠",
-        "4♠",
-        "5♠",
-        "6♠",
-        "7♠",
-        "8♠",
-        "9♠",
-        "10♠",
-        "J♠",
-        "Q♠",
-        "K♠"};
     // Code friendly-version.
     // : is 10
     char pcDecks[52][3] = {
@@ -113,6 +60,13 @@ typedef struct CardSuites
         "J*",
         "Q*",
         "K*"};
+
+#ifdef FALLBACKASCII
+    // club, diamonnd, heart, spade, 
+    wchar_t SUITES_SYMBOL[4][10] = {L"\u2663", L"\u2666", L"\u2665", L"\u2660"};
+#else
+    char SUITES_SYMBOL[4][10] = {"♣", "♦", "♥", "♠"};
+#endif
 } CardSuites;
 
 class Kartu41

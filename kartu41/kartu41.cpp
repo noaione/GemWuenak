@@ -212,9 +212,16 @@ void Kartu41::player_turn()
     int lock2 = 1;
     while (lock2)
     {
-        int card_trash;
+        int card_trash = 0;
         printf("Keluarin kartu ke-");
-        scanf("%d", &card_trash);
+        scanf("%[^\n]", &card_trash);
+        getchar();
+        if (card_trash != 0) {
+            card_trash -= 48;
+        }
+#ifdef DEBUGGAME
+        printf("\nUser input for card throwing: %d\n", card_trash);
+#endif
         if (card_trash >= 1 && card_trash <= 5)
         {
             card_controller(0, 1, card_trash - 1);
@@ -252,11 +259,26 @@ void Kartu41::print_stack()
     printf("\nStack:\n");
     if (this->latestCard != -1)
     {
+        int n_deck = 0;
+        char num = this->suites.pcDecks[this->latestCard][0];
+        char suites = this->suites.pcDecks[this->latestCard][1];
         print_x_times('=', 11);
         printf("\n");
         printf("|	  |\n");
         printf("|	  |\n");
-        printf("    %s\n", this->suites.fullDecks[this->latestCard]);
+        if (num == ':') {
+#ifdef FALLBACK_ASCII
+            printf("    10%ls\n", this->suites.SUITES_SYMBOL[(int)suites - 42]);
+#else
+            printf("    10%s\n", this->suites.SUITES_SYMBOL[(int)suites - 42]);
+#endif
+        } else {
+#ifdef FALLBACK_ASCII
+            printf("    %c%ls\n", this->suites.SUITES_SYMBOL[(int)suites - 42]);
+#else
+            printf("    %c%s\n", num, this->suites.SUITES_SYMBOL[(int)suites - 42]);
+#endif
+        }
         printf("|	  |\n");
         printf("|	  |\n");
         print_x_times('=', 11);
@@ -318,10 +340,38 @@ void Kartu41::print_user_card()
         printf("|	  | ");
     }
     printf("\n");
-    printf("    %s  ", this->suites.fullDecks[this->playerDeck[0]]);
+    char num1 = this->suites.pcDecks[this->playerDeck[0]][0];
+    char suites1 = this->suites.pcDecks[this->playerDeck[0]][1];
+    if (num1 == ':') {
+#ifdef FALLBACK_ASCII
+        printf("    10%ls  ", this->suites.SUITES_SYMBOL[(int)suites - 42]);
+#else
+        printf("    10%s  ", this->suites.SUITES_SYMBOL[(int)suites1 - 42]);
+#endif
+    } else {
+#ifdef FALLBACK_ASCII
+        printf("    %c%ls  ", this->suites.SUITES_SYMBOL[(int)suites - 42]);
+#else
+        printf("    %c%s  ", num1, this->suites.SUITES_SYMBOL[(int)suites1 - 42]);
+#endif
+    }
     for (int i = 1; i < amount_to_print; i++)
     {
-        printf("        %s  ", this->suites.fullDecks[this->playerDeck[i]]);
+        char num = this->suites.pcDecks[this->playerDeck[i]][0];
+        char suites = this->suites.pcDecks[this->playerDeck[i]][1];
+        if (num == ':') {
+#ifdef FALLBACK_ASCII
+            printf("        10%ls  ", this->suites.SUITES_SYMBOL[(int)suites - 42]);
+#else
+            printf("        10%s  ", this->suites.SUITES_SYMBOL[(int)suites - 42]);
+#endif
+        } else {
+#ifdef FALLBACK_ASCII
+            printf("        %c%ls  ", this->suites.SUITES_SYMBOL[(int)suites - 42]);
+#else
+            printf("        %c%s  ", num, this->suites.SUITES_SYMBOL[(int)suites - 42]);
+#endif
+        }
     }
     printf("\n");
     if (amount_to_print == 4)

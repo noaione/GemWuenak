@@ -180,13 +180,21 @@ public:
 
 				if (ball->x == j && ball->y == i)
 				{
+#ifdef FALLBACKASCII
+					printf("O");
+#else
 					printf("●");
+#endif
 				}
 				else if (player_1->x == j)
 				{
 					if (i == player_1->y || i == player_1->y + 1 || i == player_1->y + 2 || i == player_1->y + 3)
 					{
+#ifdef FALLBACKASCII
+						printf("%c", char(219));
+#else
 						printf("█");
+#endif
 					}
 					else
 					{
@@ -197,7 +205,11 @@ public:
 				{
 					if (i == player_2->y || i == player_2->y + 1 || i == player_2->y + 2 || i == player_2->y + 3)
 					{
+#ifdef FALLBACKASCII
+						printf("%c", char(219));
+#else
 						printf("█");
+#endif
 					}
 					else
 					{

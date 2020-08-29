@@ -92,17 +92,27 @@ int main()
         int gameCursor = -1;
         while (gameCursor == -1)
         {
-            printf("\tPlease enter number 1 to 4: ");
-            scanf("%d", &gameCursor);
-            switch (gameCursor)
+			int inp = 0;
+			printf("\tPlease enter number 1 to 4: ");
+        	scanf("%[^\n]", &inp);
+            getchar();
+			inp -= 48;
+#ifdef DEBUGGAME
+        printf("\nUser input for menu: %d\n", inp);
+#endif
+            switch (inp)
             {
             case 1:
+                gameCursor = 1;
                 break;
             case 2:
+                gameCursor = 2;
                 break;
             case 3:
+                gameCursor = 3;
                 break;
             case 4:
+                gameCursor = 4;
                 destroy = 1;
                 break;
             default:

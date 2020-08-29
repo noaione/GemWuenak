@@ -125,18 +125,28 @@ int kartu41_game()
 		printf("\t2. How to Play\n");
 		printf("\t3. Exit\n");
 
+		int do_break_loop = 0;
 		int gameCursor = -1;
 		while (gameCursor == -1)
 		{
+			int inp = 0;
 			printf("\tMasukan angka: ");
-			scanf("%d", &gameCursor);
-			switch (gameCursor)
+        	scanf("%[^\n]", &inp);
+			getchar();
+			inp -= 48;
+#ifdef DEBUGGAME
+        printf("\nUser input for menu: %d\n", inp);
+#endif
+			switch (inp)
 			{
 			case 1:
+				gameCursor = 1;
 				break;
 			case 2:
+				gameCursor = 2;
 				break;
 			case 3:
+				gameCursor = 3;
 				do_exit = 1;
 				break;
 			default:
@@ -170,7 +180,6 @@ int kartu41_game()
 			aimOfTheGame();
 			printf("\nEnter untuk selesai.");
 			getchar();
-			scanf("%c", &trash);
 			after_tut = 1;
 			break;
 		}
