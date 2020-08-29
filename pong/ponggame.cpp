@@ -123,6 +123,8 @@ public:
         this->player_1 = new Blade(1, height / 2 - 3);
         this->player_2 = new Blade(width - 2, height / 2 - 3);
     }
+
+    
     void increment_score(Blade *player)
     {
         if (player == player_1)
@@ -140,7 +142,14 @@ public:
     void draw_layout()
     {
         system("cls");
-        for (int i = 0; i < width + 2; i++)
+        //Printing above walls
+        for(int i=0;i<width+2;i++){
+            printf("\xB2");
+        }
+        puts("");
+
+        //Printing side walls
+        for (int i = 0; i < height; i++)
         {
             for (int j = 0; j < width; j++)
             {
@@ -150,7 +159,7 @@ public:
                 }
                 if (ball->x == j && ball->y == i)
                 {
-                    printf("0");
+                    printf("O");
                 }
                 else if (player_1->x == j && player_1->y == i)
                 {
@@ -198,10 +207,10 @@ public:
         {
             printf("\xB2");
         }
-        printf("");
+        puts("");
         printf("Score 1 : %d", score_1);
         printf("\t\t\tScore 2: %d", score_2);
-        printf("");
+        puts("");
     }
 
     void play()
