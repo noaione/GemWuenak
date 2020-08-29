@@ -40,9 +40,12 @@ void screenTitle(int *num)
 		printf("     ");
 		for (int j = 0; j < 94; j++)
 		{
-			if (titleScreen[i][j]) {
+			if (titleScreen[i][j])
+			{
 				printf("#");
-			} else {
+			}
+			else
+			{
 				printf(" ");
 			}
 		}
@@ -62,15 +65,18 @@ int flappy_bird()
 	do
 	{
 		hideCursor();
-        if (is_first) {
-            clearScreen();
-            setCursorPosition(0, 0);
-            screenTitle(&num);
-            is_first = 0;
-        } else {
-            setCursorPosition(0, 10);
-        }
-		
+		if (is_first)
+		{
+			clearScreen();
+			setCursorPosition(0, 0);
+			screenTitle(&num);
+			is_first = 0;
+		}
+		else
+		{
+			setCursorPosition(0, 10);
+		}
+
 		num += 68;
 		printf("                       ");
 		for (int i = 0; i < 30; i++)
@@ -138,7 +144,8 @@ int flappy_bird()
 						if (temp == 1)
 						{
 							int exit_code = 0;
-							while (true) {
+							while (true)
+							{
 								int do_break = 0;
 								char do_retry;
 								clearScreen();
@@ -147,26 +154,28 @@ int flappy_bird()
 								to_lower(&do_retry);
 								switch (do_retry)
 								{
-									case 'y':
-										temp = 0;
-										do_break = 1;
-										clearScreen();
-										birdy.startup_bird();
-										break;
-									case 'n':
-										exit_code = 1;
-										do_break = 1;
-										break;
-									default:
-										break;
+								case 'y':
+									temp = 0;
+									do_break = 1;
+									clearScreen();
+									birdy.startup_bird();
+									break;
+								case 'n':
+									exit_code = 1;
+									do_break = 1;
+									break;
+								default:
+									break;
 								}
-								if (do_break) {
+								if (do_break)
+								{
 									inputUsername(birdy.score);
 									is_first = 1;
 									break;
 								}
 							}
-							if (exit_code) {
+							if (exit_code)
+							{
 								break;
 							}
 						}

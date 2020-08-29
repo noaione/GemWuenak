@@ -12,6 +12,7 @@ public:
     void startup_bird();
     void show_bird();
     int updateWithoutInput();
+
 private:
     int high, width;         // The border
     int bird_x, bird_y;      // The bird coordinates

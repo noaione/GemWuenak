@@ -6,7 +6,8 @@
 #include "flappygame.h"
 #include "../extras/extra.h"
 
-FlappyTheBird::FlappyTheBird(void) {
+FlappyTheBird::FlappyTheBird(void)
+{
     this->score = 0;
 
     this->high;

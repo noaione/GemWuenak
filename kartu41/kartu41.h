@@ -57,8 +57,7 @@ typedef struct CardSuites
         "10♠",
         "J♠",
         "Q♠",
-        "K♠"
-    };
+        "K♠"};
     // Code friendly-version.
     // : is 10
     char pcDecks[52][3] = {
@@ -113,8 +112,7 @@ typedef struct CardSuites
         ":*", // 10
         "J*",
         "Q*",
-        "K*"
-    };
+        "K*"};
 };
 
 class Kartu41
@@ -209,53 +207,54 @@ private:
         switch (player)
         {
         case 0:
+        {
+#ifdef DEBUGGAME
+            printf("Stack player deck to left (before): %d %d %d %d %d\n", this->playerDeck[0], this->playerDeck[1], this->playerDeck[2], this->playerDeck[3], this->playerDeck[4]);
+#endif
+            int player_data[5] = {-1, -1, -1, -1, -1};
+            int player_count = 0;
+            for (int i = 0; i < 5; i++)
             {
-    #ifdef DEBUGGAME
-                printf("Stack player deck to left (before): %d %d %d %d %d\n", this->playerDeck[0], this->playerDeck[1], this->playerDeck[2], this->playerDeck[3], this->playerDeck[4]);
-    #endif
-                int player_data[5] = {-1, -1, -1, -1, -1};
-                int player_count = 0;
-                for (int i = 0; i < 5; i++)
+                if (this->playerDeck[i] != -1)
                 {
-                    if (this->playerDeck[i] != -1)
-                    {
-                        player_data[player_count++] = this->playerDeck[i];
-                    }
+                    player_data[player_count++] = this->playerDeck[i];
                 }
-                for (int i = 0; i < 5; i++)
-                {
-                    this->playerDeck[i] = player_data[i];
-                }
-    #ifdef DEBUGGAME
-                printf("Stack player deck to left (after): %d %d %d %d %d\n", this->playerDeck[0], this->playerDeck[1], this->playerDeck[2], this->playerDeck[3], this->playerDeck[4]);
-    #endif
-                break;
             }
+            for (int i = 0; i < 5; i++)
+            {
+                this->playerDeck[i] = player_data[i];
+            }
+#ifdef DEBUGGAME
+            printf("Stack player deck to left (after): %d %d %d %d %d\n", this->playerDeck[0], this->playerDeck[1], this->playerDeck[2], this->playerDeck[3], this->playerDeck[4]);
+#endif
+            break;
+        }
         case 1:
+        {
+#ifdef DEBUGGAME
+            printf("Stack bot deck to left (before): %d %d %d %d %d\n", this->botDeck[0], this->botDeck[1], this->botDeck[2], this->botDeck[3], this->botDeck[4]);
+#endif
+            int bot_data[5] = {-1, -1, -1, -1, -1};
+            int bot_count = 0;
+            for (int j = 0; j < 5; j++)
             {
-    #ifdef DEBUGGAME
-                printf("Stack bot deck to left (before): %d %d %d %d %d\n", this->botDeck[0], this->botDeck[1], this->botDeck[2], this->botDeck[3], this->botDeck[4]);
-    #endif
-                int bot_data[5] = {-1, -1, -1, -1, -1};
-                int bot_count = 0;
-                for (int j = 0; j < 5; j++)
+                if (this->botDeck[j] != -1)
                 {
-                    if (this->botDeck[j] != -1)
-                    {
-                        bot_data[bot_count++] = this->botDeck[j];
-                    }
+                    bot_data[bot_count++] = this->botDeck[j];
                 }
-                for (int j = 0; j < 5; j++)
-                {
-                    this->botDeck[j] = bot_data[j];
-                }
-    #ifdef DEBUGGAME
-                printf("Stack bot deck to left (after): %d %d %d %d %d\n", this->botDeck[0], this->botDeck[1], this->botDeck[2], this->botDeck[3], this->botDeck[4]);
-    #endif
-                break;
             }
+            for (int j = 0; j < 5; j++)
+            {
+                this->botDeck[j] = bot_data[j];
+            }
+#ifdef DEBUGGAME
+            printf("Stack bot deck to left (after): %d %d %d %d %d\n", this->botDeck[0], this->botDeck[1], this->botDeck[2], this->botDeck[3], this->botDeck[4]);
+#endif
+            break;
+        }
         }
     }
+
 public:
     bool gameover;
     int winner;

@@ -5,59 +5,67 @@
 
 void kartu41TitleCard(int skip_wait = 0)
 {
-    printf("\n/ $$   /$$ /$$$$$$  /$$$$$$$  /$$$$$$$$ /$$   /$$       /$$   /$$   /$$\n");
-    if (!skip_wait) {
-        for (int i = 0; i < 300000000; i++)
-        {
-            ;
-        }
-    }
-    printf("| $$  /$$ /$$__  $$| $$__  $$|__  $$__/| $$  | $$      | $$  | $$ /$$$$\n");
-    if (!skip_wait) {
-        for (int i = 0; i < 30000000; i++)
-        {
-            ;
-        }
-    }
-    printf("| $$ /$$/| $$   \\ $$| $$  \\ $$    | $$   | $$  | $$      | $$  | $$|_  $$\n");
-    if (!skip_wait) {
-        for (int i = 0; i < 100000000; i++)
-        {
-            ;
-        }
-    }
-    printf("| $$$$$/ | $$$$$$$$| $$$$$$$/   | $$   | $$  | $$      | $$$$$$$$  | $$\n");
-    if (!skip_wait) {
-        for (int i = 0; i < 100000000; i++)
-        {
-            ;
-        }
-    }
-    printf("| $$  $$ | $$__  $$| $$__  $$   | $$   | $$  | $$      |_____  $$  | $$\n");
-    if (!skip_wait) {
-        for (int i = 0; i < 100000000; i++)
-        {
-            ;
-        }
-    }
-    printf("| $$\\  $$ | $$  | $$| $$  \\ $$    | $$   | $$  | $$            | $$  | $$\n");
-    if (!skip_wait) {
-        for (int i = 0; i < 100000000; i++)
-        {
-            ;
-        }
-    }
-    printf("| $$ \\ $$| $$  | $$| $$  | $$   | $$   |  $$$$$$/            | $$ /$$$$$$\n");
-    if (!skip_wait) {
-        for (int i = 0; i < 100000000; i++)
-        {
-            ;
-        }
-    }
-    printf("|__/  \\__/|__/  |__/|__/  |__/   |__/     \\______/             |__/|______/\n");
+	printf("\n/ $$   /$$ /$$$$$$  /$$$$$$$  /$$$$$$$$ /$$   /$$       /$$   /$$   /$$\n");
+	if (!skip_wait)
+	{
+		for (int i = 0; i < 300000000; i++)
+		{
+			;
+		}
+	}
+	printf("| $$  /$$ /$$__  $$| $$__  $$|__  $$__/| $$  | $$      | $$  | $$ /$$$$\n");
+	if (!skip_wait)
+	{
+		for (int i = 0; i < 30000000; i++)
+		{
+			;
+		}
+	}
+	printf("| $$ /$$/| $$   \\ $$| $$  \\ $$    | $$   | $$  | $$      | $$  | $$|_  $$\n");
+	if (!skip_wait)
+	{
+		for (int i = 0; i < 100000000; i++)
+		{
+			;
+		}
+	}
+	printf("| $$$$$/ | $$$$$$$$| $$$$$$$/   | $$   | $$  | $$      | $$$$$$$$  | $$\n");
+	if (!skip_wait)
+	{
+		for (int i = 0; i < 100000000; i++)
+		{
+			;
+		}
+	}
+	printf("| $$  $$ | $$__  $$| $$__  $$   | $$   | $$  | $$      |_____  $$  | $$\n");
+	if (!skip_wait)
+	{
+		for (int i = 0; i < 100000000; i++)
+		{
+			;
+		}
+	}
+	printf("| $$\\  $$ | $$  | $$| $$  \\ $$    | $$   | $$  | $$            | $$  | $$\n");
+	if (!skip_wait)
+	{
+		for (int i = 0; i < 100000000; i++)
+		{
+			;
+		}
+	}
+	printf("| $$ \\ $$| $$  | $$| $$  | $$   | $$   |  $$$$$$/            | $$ /$$$$$$\n");
+	if (!skip_wait)
+	{
+		for (int i = 0; i < 100000000; i++)
+		{
+			;
+		}
+	}
+	printf("|__/  \\__/|__/  |__/|__/  |__/   |__/     \\______/             |__/|______/\n");
 }
 
-void howToPlay() {
+void howToPlay()
+{
 	puts("			How To Play");
 	puts("");
 	puts("1. Dalam setiap permainan kartu 41 terdapat 4 pemain.");
@@ -70,7 +78,8 @@ void howToPlay() {
 	puts("   habis adalah pemenang.");
 }
 
-void aimOfTheGame() {
+void aimOfTheGame()
+{
 	puts("				Aim of The Game");
 	puts("");
 	puts("	Dalam permainan kartu 41, pemain bersaing untuk mendapatkan kartu berjumlah 41");
@@ -85,20 +94,26 @@ void aimOfTheGame() {
 	puts("poin paling banyak setelah deck habis.");
 }
 
-int kartu41_game() {
+int kartu41_game()
+{
 	int do_exit = 0, first_run = 1, after_tut = 0;
 	char trash;
 
-	while (!do_exit) {
-		if (first_run) {
+	while (!do_exit)
+	{
+		if (first_run)
+		{
 			first_run = false;
 			clearScreen();
 			hideCursor();
 			setCursorPosition(0, 0);
 			kartu41TitleCard();
 			reshowCursor();
-		} else {
-			if (after_tut) {
+		}
+		else
+		{
+			if (after_tut)
+			{
 				after_tut = 1;
 				clearScreen();
 				setCursorPosition(0, 0);
@@ -129,40 +144,44 @@ int kartu41_game() {
 				break;
 			}
 		}
-		if (do_exit) {
+		if (do_exit)
+		{
 			break;
 		}
 
-		switch (gameCursor) {
-			case 1:
-			{
-				clearScreen();
-				setCursorPosition(0, 0);
-				Kartu41 kartu41game;
-				kartu41game.start_game();
-				break;
-			}
-			case 2:
+		switch (gameCursor)
+		{
+		case 1:
+		{
+			clearScreen();
+			setCursorPosition(0, 0);
+			Kartu41 kartu41game;
+			kartu41game.start_game();
+			break;
+		}
+		case 2:
+		{
+			puts("");
+			howToPlay();
+			for (int i = 0; i < 3; i++)
 			{
 				puts("");
-				howToPlay();
-				for (int i = 0; i < 3; i++) {
-					puts("");
-				}
-				aimOfTheGame();
-				printf("\nEnter untuk selesai.");
-				getchar();
-				scanf("%c", &trash);
-				after_tut = 1;
-				break;
 			}
-			case 3:
-			{
-				do_exit = 1;
-				break;
-			}
+			aimOfTheGame();
+			printf("\nEnter untuk selesai.");
+			getchar();
+			scanf("%c", &trash);
+			after_tut = 1;
+			break;
 		}
-		if (do_exit) {
+		case 3:
+		{
+			do_exit = 1;
+			break;
+		}
+		}
+		if (do_exit)
+		{
 			break;
 		}
 	}

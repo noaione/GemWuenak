@@ -60,7 +60,8 @@ int determine_max_and_combine(int dataset[4])
     return total_final;
 }
 
-Kartu41::Kartu41(void) {
+Kartu41::Kartu41(void)
+{
     srand(time(NULL)); // seed RNGJesus
     this->gameover = false;
     this->winner = -1;

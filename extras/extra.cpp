@@ -13,11 +13,12 @@
 #include <unistd.h>
 #endif
 
-
-int checkAndCreateFolder(const char *folderName) {
+int checkAndCreateFolder(const char *folderName)
+{
     struct stat fst = {0};
     int res;
-    if (stat(folderName, &fst) == -1) {
+    if (stat(folderName, &fst) == -1)
+    {
 #ifdef _WIN32
         res = mkdir(folderName);
 #else
@@ -27,9 +28,11 @@ int checkAndCreateFolder(const char *folderName) {
     return res;
 }
 
-void checkAndCreateDummy(const char *fileName) {
+void checkAndCreateDummy(const char *fileName)
+{
     struct stat fst = {0};
-    if (stat(fileName, &fst) == -1) {
+    if (stat(fileName, &fst) == -1)
+    {
         FILE *fptr;
         fptr = fopen(fileName, "w");
         fprintf(fptr, "\0");
@@ -37,7 +40,8 @@ void checkAndCreateDummy(const char *fileName) {
     }
 }
 
-char *getSaveGameFolder() {
+char *getSaveGameFolder()
+{
 #ifdef _WIN32
     char *saveFolder = getenv("APPDATA");
     strcat(saveFolder, "/GemWuenak/");
@@ -49,7 +53,8 @@ char *getSaveGameFolder() {
     return saveFolder;
 }
 
-void hideCursor() {
+void hideCursor()
+{
 #ifdef _WIN32
     CONSOLE_CURSOR_INFO cursor_info = {1, 0};
     SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursor_info);
@@ -58,7 +63,8 @@ void hideCursor() {
 #endif
 }
 
-void reshowCursor() {
+void reshowCursor()
+{
 #ifdef _WIN32
     CONSOLE_CURSOR_INFO cursor_info = {1, 10};
     SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursor_info);
@@ -67,18 +73,20 @@ void reshowCursor() {
 #endif
 }
 
-void setCursorPosition(int x, int y) {
+void setCursorPosition(int x, int y)
+{
 #ifdef _WIN32
-	COORD cursorPosition; 
-	cursorPosition.X = x; 
-	cursorPosition.Y = y;	
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), cursorPosition);
+    COORD cursorPosition;
+    cursorPosition.X = x;
+    cursorPosition.Y = y;
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), cursorPosition);
 #else
     printf("\033[%d;%dH", x + 1, y + 1);
 #endif
 }
 
-void clearScreen() {
+void clearScreen()
+{
 #ifdef _WIN32
     system("cls"); // In Windows
 #else
@@ -93,7 +101,6 @@ void to_lower(char *ch)
         *ch += 32;
     }
 }
-
 
 // int main() {
 //     char *gamefolder = getSaveGameFolder();
