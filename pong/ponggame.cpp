@@ -257,6 +257,7 @@ class Ping_Pong{ //Main var
 
 
 int ping_pong_game(int sw = 40, int sy = 20){
+	hideCursor();
 	Ping_Pong game(sw, sy); 
 	game.lets_ping_pong();
 	return 0; 
