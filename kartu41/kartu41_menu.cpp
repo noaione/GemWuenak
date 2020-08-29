@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <windows.h>
 
 #include "kartu41.h"
 #include "../extras/extra.h"
@@ -8,58 +9,37 @@ void kartu41TitleCard(int skip_wait = 0)
 	printf("\n/ $$   /$$ /$$$$$$  /$$$$$$$  /$$$$$$$$ /$$   /$$       /$$   /$$   /$$\n");
 	if (!skip_wait)
 	{
-		for (int i = 0; i < 300000000; i++)
-		{
-			;
-		}
+		Sleep(250);
 	}
 	printf("| $$  /$$ /$$__  $$| $$__  $$|__  $$__/| $$  | $$      | $$  | $$ /$$$$\n");
 	if (!skip_wait)
 	{
-		for (int i = 0; i < 30000000; i++)
-		{
-			;
-		}
+		Sleep(250);
 	}
 	printf("| $$ /$$/| $$   \\$$| $$  \\$$    | $$   | $$  | $$      | $$  | $$|_  $$\n");
 	if (!skip_wait)
 	{
-		for (int i = 0; i < 100000000; i++)
-		{
-			;
-		}
+		Sleep(250);
 	}
 	printf("| $$$$$/ | $$$$$$$$| $$$$$$$/   | $$   | $$  | $$      | $$$$$$$$  | $$\n");
 	if (!skip_wait)
 	{
-		for (int i = 0; i < 100000000; i++)
-		{
-			;
-		}
+		Sleep(250);
 	}
 	printf("| $$  $$ | $$__  $$| $$__  $$   | $$   | $$  | $$      |_____  $$  | $$\n");
 	if (!skip_wait)
 	{
-		for (int i = 0; i < 100000000; i++)
-		{
-			;
-		}
+		Sleep(250);
 	}
 	printf("| $$\\  $$| $$  | $$| $$  \\$$    | $$   | $$  | $$            | $$  | $$\n");
 	if (!skip_wait)
 	{
-		for (int i = 0; i < 100000000; i++)
-		{
-			;
-		}
+		Sleep(250);
 	}
 	printf("| $$ \\$$ | $$  | $$| $$  | $$   | $$   |  $$$$$$/            | $$ /$$$$$$\n");
 	if (!skip_wait)
 	{
-		for (int i = 0; i < 100000000; i++)
-		{
-			;
-		}
+		Sleep(250);
 	}
 	printf("|__/  \\__/|__/ |__/|__/  |__/   |__/    \\______/             |__/|______/\n");
 }

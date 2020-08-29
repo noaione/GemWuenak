@@ -184,6 +184,7 @@ void Kartu41::player_turn()
             char ds_in;
             printf("Ambil dari (s)tack apa (d)eck? (s/d) -> ");
             scanf(" %c", &ds_in);
+            getchar();
             to_lower(&ds_in);
             switch (ds_in)
             {
@@ -197,7 +198,7 @@ void Kartu41::player_turn()
                 lock = 0;
                 break;
             default:
-                printf("\nHah gimana?\n");
+                printf("Hah gimana?\n");
                 break;
             }
         }
