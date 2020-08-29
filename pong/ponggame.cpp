@@ -151,13 +151,13 @@ class Ping_Pong{ //Main var
 			system("cls");
 			
 			for (int i=0; i< width+2; i++) printf("\xB2");
-			printf("\n")
+			printf("\n");
 			
 			
 			for(int i=0; i<height; i++){ 
 				for(int j=0; j<width; j++){
 					
-					if (j==0) printf("\xB2") 
+					if (j==0) printf("\xB2")
 					
 					if(ball->x == j && ball->y == i) printf("O")
 																
@@ -179,7 +179,9 @@ class Ping_Pong{ //Main var
 					if (j==width-1) printf("\xDB");
 				} 
 				
-				cout << "\xB2" << endl;
+				
+                printf("\xB2");
+                puts("");
 			} 
 			
 			
