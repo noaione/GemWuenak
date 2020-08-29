@@ -151,9 +151,6 @@ public:
 
 		if (score_1 >= 25 || score_2 >= 25)
 		{
-			puts("");
-			puts("");
-			score_1 > score_2 ? puts("PLAYER 1 WINS!!") : puts("PLAYER 2 WINS!!");
 			terminate = true;
 		}
 		else
@@ -230,6 +227,11 @@ public:
 		printf("Score_P1: %d", score_1);
 		printf("\t\t\tScore_P2: %d", score_2);
 		puts("");
+		printf("Controls:\n");
+		printf("Q, A (Player 1 Move Up/Down)\n");
+		printf("P, L (Player 2 Move Up/Down)\n");
+		printf("T to terminate game.");
+		puts("");
 	}
 
 	void play()
@@ -297,7 +299,15 @@ public:
 			play();
 			monitor_ball();
 		}
-		Sleep(2000);
+		// Show score here.
+		puts("");
+		printf("Game ended.\n");
+		if (score_1 == score_2) {
+			puts("The game are tied!");
+		} else {
+			score_1 > score_2 ? puts("PLAYER 1 WINS!!") : puts("PLAYER 2 WINS!!");
+		}
+		Sleep(3000);
 	}
 };
 
