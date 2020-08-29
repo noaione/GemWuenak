@@ -159,6 +159,7 @@ int flappy_bird()
 									do_break = 1;
 									clearScreen();
 									birdy.startup_bird();
+									clearScreen();
 									break;
 								case 'n':
 									exit_code = 1;
