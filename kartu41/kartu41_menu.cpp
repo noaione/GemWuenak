@@ -21,7 +21,7 @@ void kartu41TitleCard(int skip_wait = 0)
 			;
 		}
 	}
-	printf("| $$ /$$/| $$   \\$$| $$  \\ $$    | $$   | $$  | $$      | $$  | $$|_  $$\n");
+	printf("| $$ /$$/| $$   \\$$| $$  \\$$    | $$   | $$  | $$      | $$  | $$|_  $$\n");
 	if (!skip_wait)
 	{
 		for (int i = 0; i < 100000000; i++)
@@ -45,7 +45,7 @@ void kartu41TitleCard(int skip_wait = 0)
 			;
 		}
 	}
-	printf("| $$\\  $$| $$  | $$| $$  \\ $$    | $$   | $$  | $$            | $$  | $$\n");
+	printf("| $$\\  $$| $$  | $$| $$  \\$$    | $$   | $$  | $$            | $$  | $$\n");
 	if (!skip_wait)
 	{
 		for (int i = 0; i < 100000000; i++)
@@ -53,7 +53,7 @@ void kartu41TitleCard(int skip_wait = 0)
 			;
 		}
 	}
-	printf("| $$ \\ $$| $$  | $$| $$  | $$   | $$   |  $$$$$$/            | $$ /$$$$$$\n");
+	printf("| $$ \\$$ | $$  | $$| $$  | $$   | $$   |  $$$$$$/            | $$ /$$$$$$\n");
 	if (!skip_wait)
 	{
 		for (int i = 0; i < 100000000; i++)
@@ -61,7 +61,7 @@ void kartu41TitleCard(int skip_wait = 0)
 			;
 		}
 	}
-	printf("|__/  \\__/|__/ |__/|__/  |__/   |__/     \\______/             |__/|______/\n");
+	printf("|__/  \\__/|__/ |__/|__/  |__/   |__/    \\______/             |__/|______/\n");
 }
 
 void howToPlay()
