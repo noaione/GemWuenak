@@ -157,9 +157,9 @@ class Ping_Pong{ //Main var
 			for(int i=0; i<height; i++){ 
 				for(int j=0; j<width; j++){
 					
-					if (j==0) printf("\xB2")
+					if (j==0) printf("\xB2");
 					
-					if(ball->x == j && ball->y == i) printf("O")
+					if(ball->x == j && ball->y == i) printf("O");
 																
 					
 					else if(player_1->x == j && player_1->y == i) printf("\xDB");
@@ -256,8 +256,8 @@ class Ping_Pong{ //Main var
 
 
 
-int main(){
-	Ping_Pong game(40, 20); 
+int ping_pong_game(int sw = 40, int sy = 20){
+	Ping_Pong game(sw, sy); 
 	game.lets_ping_pong();
 	return 0; 
 }
