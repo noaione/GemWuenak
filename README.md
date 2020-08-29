@@ -21,7 +21,8 @@ To get debug/extra output, add `-DDEBUGGAME` flags. `(mainly for Kartu41)`
     - Base Highscore implementation
     - Main menu implementation.
 - **YouCanCallMeMatt** (@Demonsta18)
-    - TO BE ADDED
+    - Game Tester
+    - Debugger and modifying code
 - **N4O** (@noaione)
     - Kartu41 C++ Code
     - Unification
