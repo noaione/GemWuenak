@@ -11,7 +11,8 @@ Windows only (Karena memakai module `windows.h`)<br>
 Compiling project in Dev-C++: [Video](https://cdn.discordapp.com/attachments/741333670241239051/749134631361708042/dPSVjACN8N.mp4)<br>
 Example used are from commit [`30f9bf1`](https://github.com/noaione/GemWuenak/commit/30f9bf1c9b252174dbe59616b0a75d411bf8ec31)
 
-To get debug/extra output, add `-DDEBUGGAME` flags. `(mainly for Kartu41)`
+To get debug/extra output, add `-DDEBUGGAME` flags. `(mainly for Kartu41)`<br>
+If you're having problem with the output (garbled), add `-DFALLBACKASCII` flags when compiling.
 
 ## Credits
 - **RoARene317** (@HerendraTJ)
