@@ -14,30 +14,30 @@ Example used are from commit [`30f9bf1`](https://github.com/noaione/GemWuenak/co
 To get debug/extra output, add `-DDEBUGGAME` flags. `(mainly for Kartu41)`
 
 ## Credits
-- **RoARene317**
+- **RoARene317** (@HerendraTJ)
     - Base code Pong game
-- **Ashborne**
+- **Ashborne** (@4shb0rne)
     - Base code Flappy Bird
     - Base Highscore implementation
     - Main menu implementation.
-- **YouCanCallMeMatt**
+- **YouCanCallMeMatt** (@Demonsta18)
     - TO BE ADDED
-- **N4O**
+- **N4O** (@noaione)
     - Kartu41 C++ Code
     - Unification
     - Adding header file to almost everything.
     - All Extras code
     - Reimplement main Flappy Bird code to Class.
     - Main main menu implementation.
-- **kisanak**
+- **kisanak** (@kisanakz)
     - Kartu41 original code and Idea
 - **PsychSylv**
     - ASCII Art
-- **Machiaveliz**
+- **Machiaveliz** (@Machiaveliz)
     - ASCII Art
-- **RedDotSight**
+- **RedDotSight** (@Randomizer23)
     - Menu part
-- **Yamada Masaya**
+- **Yamada Masaya** (@yamadamasaya123)
     - Base menu for Kartu 41
 - **astrid.dr**
     - PPT
