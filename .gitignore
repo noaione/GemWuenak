@@ -36,3 +36,9 @@ build/
 
 # Score file
 flappy_*.txt
+
+# DEV-C++
+*_private.**
+*.dev
+*.layout
+*.win
