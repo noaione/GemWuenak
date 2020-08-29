@@ -5,7 +5,7 @@ typedef struct highscore
 {
 	char name[20];
 	int score;
-};
+} highscore;
 
 void listName();
 void listScore();

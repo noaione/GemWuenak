@@ -113,7 +113,7 @@ typedef struct CardSuites
         "J*",
         "Q*",
         "K*"};
-};
+} CardSuites;
 
 class Kartu41
 {
