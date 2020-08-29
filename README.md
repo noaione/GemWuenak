@@ -35,7 +35,7 @@ To get debug/extra output, add `-DDEBUGGAME` flags. `(mainly for Kartu41)`
 - **RedDotSight**
     - Menu part
 - **Yamada Masaya**
-    - TO BE ADDED
+    - Base menu for Kartu 41
 - **astrid.dr**
     - PPT
 - **sherly**
