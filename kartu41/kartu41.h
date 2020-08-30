@@ -7,6 +7,7 @@ typedef struct CardSuites
 {
     // Code friendly-version.
     // : is 10
+    // ASCII code friendly.
     char pcDecks[52][3] = {
         "A+", // ♣
         "2+",

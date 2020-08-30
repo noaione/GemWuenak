@@ -6,7 +6,6 @@
 #include <conio.h>
 #else
 #include <ncurses.h>
-#include "../extras/unix_support.h"
 #endif
 
 #include "kartu41.h"

@@ -115,7 +115,7 @@ int kartu41_game()
 			getchar();
 			inp -= 48;
 #ifdef DEBUGGAME
-        printf("\nUser input for menu: %d\n", inp);
+        	printf("\nUser input for menu: %d\n", inp);
 #endif
 			switch (inp)
 			{
