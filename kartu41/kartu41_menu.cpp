@@ -16,7 +16,7 @@ void kartu41TitleCard(int skip_wait = 0)
 	{
 		Sleep(250);
 	}
-	printf("| $$ /$$/| $$   \\$$| $$  \\$$    | $$   | $$  | $$      | $$  | $$|_  $$\n");
+  printf("| $$ /$$/| $$   \\$$| $$  \\$$    | $$   | $$  | $$      | $$  | $$|_  $$\n");
 	if (!skip_wait)
 	{
 		Sleep(250);
@@ -41,7 +41,7 @@ void kartu41TitleCard(int skip_wait = 0)
 	{
 		Sleep(250);
 	}
-	printf("|__/  \\__/|__/ |__/|__/  |__/   |__/    \\______/             |__/|______/\n");
+  printf("|__/  \\__/|__/ |__/|__/  |__/   |__/    \\______/             |__/|______/\n");
 }
 
 void howToPlay()
